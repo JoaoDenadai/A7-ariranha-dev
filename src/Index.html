@@ -13,6 +13,7 @@
         <meta charset="UTF-8">
         <!-- Título da janela -->
         <title>A7-Ariranha (v1.10.0)</title>
+        <!-- Adicionado o CSS de manipulação da aparênciad da janela -->
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
@@ -33,11 +34,14 @@
         </div>
 
         <!-- Checkbox para formatação automática -->
+        <!-- PRECISA-SE URGENTEMENTE COLOCAR ESSES PARÂMETROS NO Conf.json -->
         <div style="display: inline-flex; flex-direction: column; padding-top: 5px;">
             <div style="display: inline-flex;">
+                <!-- Checkbox responsável por formatar automaticamente o CNPJ ao conter 14 digitos -->
                 <input type="checkbox" id="CNPJ-Checkbox-autoformat-element">Formatar automaticamente</input>
             </div>
             <div style="display: inline-flex;">
+                <!-- Checkbox responsável por copiar bem no momento de se formatar -->
                 <input type="checkbox" id="CNPJ-Checkbox-autocopy-element">Copiar ao formatar</input>
             </div>
         </div>
@@ -45,15 +49,17 @@
         <!-- Divisão da segunda árvore de ferramentas, exclusivamente para Código A7 -->
         <div style="display: flex; flex-direction: column; margin-top: 25px;">
             <label>Código A7</label>
+            <!-- Campo para ser preenchido o Código A7 -->
             <input type="text" id="A7-Input-element" placeholder="Digite o Código A7"></input>
 
-            <!-- Botões de manipulação do Código A7 -->
-            <!-- NÃO ALTERAR NENHUM ID -->
+            <!-- Botão de manipulação do Código A7 -->
             <button id="A7-Format-Button">Formatar</button>
         </div>
 
+        <!-- Checkbox para formatar automaticamente o Código A7 -->
         <div style="display: inline-flex; flex-direction: column; padding-top: 5px;">
             <div style="display: inline-flex;">
+                <!-- Caso o checkbox esteja ativo, ele irá formatar automaticamente o Código A7 ao ter 9 digitos -->
                 <input type="checkbox" id="A7-Checkbox-autoformat-element">Formatar automaticamente</input>
             </div>
         </div>
@@ -70,9 +76,13 @@
         <!-- Logs do sistema-->
         <div style="margin-top: 25px;  width: 95vw; height: 10vh; resize: none;">
             <label>Logs</label>
+            <!-- Área de logs, aqui você consegue visualizar todos os logs de eventos que ocorre no Ariranha, inclusive, mensagens de erro -->
+            <!-- É possível desabilitar os logs, o que pode melhorar o desempenho -->
             <textarea id="A7-Ariranha-Logs-element" style=" font-size: 9px; background-color: rgb(248, 248, 248); resize: none; width: 95vw; height: 10vh;" readonly></textarea>
         </div>
 
+
+        <!-- Botão de configurações -->
         <button style="margin-top: 35px;" id="Config-Button-element">Configurações</button>
 
         <!-- Lista de scripts funcionando com o projeto -->
