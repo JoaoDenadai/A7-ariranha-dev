@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Configurações</title>
+        <link rel="stylesheet" href="../../index.css">
+    </head>
+    <body>
+        <h3>Configurações</h3>
+        <div id="">
+            <h4>Geral</h4>
+            <div style="display: flex; flex-direction: column;">
+                <div style="display: inline-flex;">
+                <input type="checkbox" id="enable-resize">Redimensionamento da janela</input>
+                </div>
+                <div style="display: inline-flex;">
+                    <input type="checkbox" id="enable-events">Monitoramento de eventos</input>
+                    <input type="checkbox" id="enable-developer-mode" style="margin-left: 55px;" disabled>Modo desenvolvedor</input>
+                </div>
+            </div>
+
+            <h4>Temas</h4>
+            <div>
+                <div class="theme-selector" style="display: inline-block;">
+                    <select id="theme-options">
+                        <option value="1">Branco</option>
+                        <option value="2">Escuro</option>
+                        <option value="3" id="color-custom-theme-01">Ensolarado</option>
+                        <option value="4" id="color-custom-theme-02">Aurora Pastel</option>
+                        <option value="5" id="color-custom-theme-03">Carmesim Delicado</option>
+                        <option value="6" id="color-custom-theme-03">Verde menta</option>
+                    </select>
+                  </div>
+                  
+            </div>
+
+            <h4>Ferramentas</h4>
+            <div style="display: flex; flex-direction: column;">
+                <div style="display: inline-flex;">
+                    <input type="checkbox" id="enable-devtools" disabled>Logs do Electron</input>
+                </div>
+            </div>
+
+            <script src="JSON.js"></script>
+            <script src="Load.js"></script>
+            <script src="Prompt.js"></script>
+        </div>
+    </body>
+</html>
