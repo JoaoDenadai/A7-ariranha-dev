@@ -6,3 +6,5 @@ nvm install 21
 npm install electron --save-dev
 npm install electron-builder --save-dev
 npm install electron-store
+npm install electron-logs
+npm install electron-updater
