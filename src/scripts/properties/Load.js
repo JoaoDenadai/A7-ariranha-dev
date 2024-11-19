@@ -173,4 +173,5 @@ function applyThemeOnConfig()
         
 };
 
+//Aplica o tema toda a vez que a página for recarregada.
 applyThemeOnConfig();
