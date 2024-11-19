@@ -1,4 +1,4 @@
-//CNPJ.js
+//A7.js
 //
 //Arquivo de lógica de funcionamento para a manipulação do código A7.
 //
