@@ -5,7 +5,6 @@
 //Criado por: João Denadai
 
 
-
 //Importando o módulo 'fs' para manipulação de arquivos
 //Definindo o nome global e constante para o arquivo.
 const fs = require('fs');
@@ -23,6 +22,7 @@ function carregar_Do_JSON()
     //Se o arquivo não existir, ele irá criar um novo com base em uma configuração padrão.
     else 
     {
+        //Modelo do arquivo de configurações.
         const defaultConfig = {
             window: {
                 isResizable: false,
@@ -57,11 +57,14 @@ function atualizarConfiguracao()
     atualizar_o_JSON(configuracoes);
 };
 
+//Recarrega a página principal.
 function electronReload()
 {
+    //O IPC envia uma informação para o arquivo Index.js, do próprio electron.
     ipcRenderer.send('reload-page');
 };
 
+//Recarrega a página de configurações.
 function electronConfigReload()
 {
     ipcRenderer.send('reload-page-config');
