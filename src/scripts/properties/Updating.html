@@ -1,0 +1,59 @@
+<!-- Updating.html-->
+<!---->
+<!-- Arquivo de atualização -->
+<!---->
+<!-- Criado por: João Denadai -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Compatibilidade com caracteres especiais -->
+        <meta charset="UTF-8">
+        <!-- Título -->
+        <title>Atualizando... (a7-Ariranha)</title>
+        <link rel="stylesheet" href="Updating.css">
+    </head>
+    <body>
+        <div>
+            <!-- Painel informativo sobre a atualização -->
+            <h3>Atualizando o sistema</h3>
+            <p>Uma nova versão do sistema está disponível. O sistema ficará inativo até que a atualização seja instalada e concluída.</p>
+            <p><b>O sistema será reiniciado após a atualização</b></p>
+
+            <!-- Ponto extremamente importante -->
+            <!-- Barra de progresso da atualização.-->
+            <div id="progress-container">
+                <progress id="progress-bar" value="0" max="100"></progress>
+            </div>
+            <!-- Porcentagem -->
+            <div id="download-status">0% concluído</div>
+            <!-- Imagem da Ariranha -->
+            <img style="width: 100px; margin-top: 20px;" src="../../../assets/otter.png">
+            
+        </div>
+            <!-- Script de carregamento -->
+            <!-- Se comunica diretamente com o index.ts -->
+        <script>
+            //Usando strict por segurança.
+            "use strict";
+
+            //Reimportando o ipcRenderer.
+            const { ipcRenderer } = require('electron');
+
+            //Barra de progresso e porcentagem de download importadas.
+            const progressBar = document.getElementById('progress-bar');
+            const downloadPorcent = document.getElementById('download-status');
+            
+            //Função do ipcRenderer, utilizado para a comunicação entre o front-end da página e o back-end do nodejs.
+            ipcRenderer.on('download-progress', (event, downloadMetrics) => {
+                downloadMetrics = Math.min(Math.max(downloadMetrics, 0), 100);
+
+                //Atualizando a barra de progresso toda a vez que o progresso for ajustado no index.ts
+                progressBar.value = downloadMetrics;
+                downloadPorcent.innerText = `Instalando: ${downloadMetrics}%`;
+            })
+            
+        </script>
+    </body>
+</html>

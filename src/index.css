@@ -1,0 +1,71 @@
+/*    index.css
+    Arquivo de css, para manipulação da aparência das páginas de configuração e principal.
+    Aqui você pode livremente alterar os temas, SEM ADICIONAR MAIS. O sistema é fechado e não irá carregar apenas colocando-o aqui.
+*/
+
+/* Importa a fonte roboto do googleapi.com */
+/* Atualmente ainda não há um uso para a fonte do Roboto no sistema.*/
+/*@import url('https://fonts.googleapis.com/css2?family=Borel&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');*/
+body
+{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+}
+
+/* Temas simples */
+.theme-branco {
+    background-color: #ffffff; /* Cor de fundo branco */
+    color: #000; /* Cor do texto */
+}
+
+.theme-escuro {
+    background-color: #333333; /* Cor de fundo escura */
+    color: #fff;
+}
+
+/* Temas adicionais */
+/* São temas dinâmicos, ou seja, tem animação. */
+.ensolarado {
+    background-color: #FBAB7E;
+    background-image: linear-gradient(10deg, #c87a4d 0%, #ffdf8e 100%);
+    color: white;
+    background-size: 200% 200%; /* Faz o gradiente maior que o elemento */
+    animation: gradientMove 6s infinite ease-in-out;
+}
+
+.aurora-pastel {
+    background-color: #8EC5FC;
+    background-image: linear-gradient(180deg, #8EC5FC 0%, #c693f6 100%);
+    color: #ffffff;
+    background-size: 200% 200%;
+    animation: gradientMove 6s infinite ease-in-out;
+}
+
+.carmesim-delicado {
+    background-color: #FF9A8B;
+    background-image: linear-gradient(50deg, #84382c 0%, #FF6A88 55%, #FF99AC 100%);
+    color: white;
+    background-size: 200% 200%;
+    animation: gradientMove 6s infinite ease-in-out;
+}
+
+.verde-menta {
+    background-color: #85FFBD;
+    background-image: linear-gradient(0deg, #5fd496 0%, #e5ff7d 100%);
+    background-size: 200% 200%;
+    animation: gradientMove 6s infinite ease-in-out;
+}
+
+/* Animação de fundo */
+/* Imagino poder aplicar mais configurações futuramente, mas atualmente, apenas há essa.*/
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%; /* Início da posição do gradiente */
+    }
+    50% {
+        background-position: 0% 90%; /* Fim da posição do gradiente */
+    }
+    100% {
+        background-position: 0% 0%; /* Fim da posição do gradiente */
+    }
+}
