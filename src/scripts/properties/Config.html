@@ -1,0 +1,88 @@
+<!-- Config.html -->
+<!---->
+<!-- Arquivo de elementos gráficos da tela de Config.html -->
+<!---->
+<!-- Criado por: João Denadai -->
+ 
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Compatibilidade com caracteres especiais -->
+        <meta charset="UTF-8">
+
+        <!-- Título da janela -->
+        <title>Configurações</title>
+
+        <!-- Arquivo de HTML -->
+        <!-- Atenção pois ele utiliza o mesmo arquivo de o Index.html -->
+        <link rel="stylesheet" href="../../index.css">
+        <link rel="stylesheet" href="../../toolbar/toolbar.css">
+    </head>
+    <body>
+
+        <!--Barra de título da janela de configurações-->
+        <div id="title-bar">
+            <!-- Não diferencia muito da tela principal, apenas com menos opções e botões -->
+            <div style="display: inline-flex; align-items: center; margin-left: 5px;">
+                <img style="width: 20px;" src="../../../assets/otter.png">
+                <div id="title-on-bar" style="margin-left: 5px;" class="window-name">Ariranha</div>
+                <button style="color: gray; border-radius: 4px; margin-left: 10px;">Tela: Configurações</button>
+            </div>
+            <!-- Botões essenciais de fechar e minimizar-->
+            <div id="title-bar-buttons">
+                <button id="title-bar-minimize-button-config" class="title-bar-minimize-button"><img src="../../../assets/minus.png" style="width: 75%; height: auto;"></button>
+                <button id="title-bar-close-button-config" class="title-bar-close-button"><img src="../../../assets/close.png" style="width: 75%; height: auto;"></button>
+            </div>
+        </div>
+
+        <!-- Título de configurações -->
+        <h3 style="margin-top: 40px;">Configurações</h3>
+        <div id="">
+            <!-- Divisão de configurações gerais -->
+            <!-- As configurações gerais são mais para mudar parâmetros e comportamentos gerais do sistema -->
+            <h4>Geral</h4>
+            <div style="display: flex; flex-direction: column;">
+                <div style="display: inline-flex;">
+                    <!-- Configuração de redimensionamento da janela -->
+                    <input type="checkbox" id="enable-resize">Redimensionamento da janela</input>
+                </div>
+                <div style="display: inline-flex;">
+                    <!-- Configuração de monitoramento de eventos e modo desenvolvedor -->
+                    <input type="checkbox" id="enable-events">Monitoramento de eventos</input>
+                </div>
+            </div>
+
+            <!-- Sessão de temas -->
+            <h4>Temas</h4>
+            <div>
+                <!-- Seletor de temas -->
+                <div class="theme-selector" style="display: inline-block;">
+                    <select id="theme-options">
+                        <!-- Todos os temas disponíveis -->
+                        <!-- Ao adicionar um novo, é importante atualizar os arquivos de configuração -->
+                        <option value="1">Branco</option>
+                        <option value="2">Escuro</option>
+                        <option value="3" id="color-custom-theme-01">Ensolarado</option>
+                        <option value="4" id="color-custom-theme-02">Aurora Pastel</option>
+                        <option value="5" id="color-custom-theme-03">Carmesim Delicado</option>
+                        <option value="6" id="color-custom-theme-03">Verde menta</option>
+                    </select>
+                  </div>
+            </div>
+
+            <!-- Parte de ferramentas, geralmente desabilitado -->
+            <h4>Ferramentas</h4>
+            <div style="display: flex; flex-direction: column;">
+                <div style="display: inline-flex;">
+                    <!-- Manter essa parte desabilitada -->
+                    <input type="checkbox" id="enable-devtools" disabled>Logs do Electron</input>
+                </div>
+            </div>
+
+            <!-- Importando arquivos de lógica -->
+            <script src="JSON.js"></script>
+            <script src="Load.js"></script>
+            <script type="module" src="../../toolbar/toolbar-settings.js"></script>
+        </div>
+    </body>
+</html>

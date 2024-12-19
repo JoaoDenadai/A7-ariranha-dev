@@ -1,0 +1,87 @@
+/*  index.css
+    Arquivo de css, para manipulação da aparência das páginas de configuração e principal.
+    Aqui você pode livremente alterar os temas, SEM ADICIONAR MAIS. O sistema é fechado e não irá carregar apenas colocando-o aqui.
+*/
+
+/*Divisão da barra de título da janela*/
+#title-bar
+{
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    user-select: none;
+
+    /*Configuração extremamente importante para que o usuário consiga arrastar a janela usando a barra de título*/
+    -webkit-app-region: drag;
+    display: inline-flex;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    /*Ela é fixada na página*/
+    position: fixed;
+    justify-content: space-between;
+    background-color: #f1f1f1;
+};
+
+/*Estilização de botões da barra de título*/
+#title-bar-buttons
+{
+    margin: 0px;
+    display: inline-flex;
+    height: 100%;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    /*Elemento importante para que, ao apertar em cima de um botão, a janela não tenha o comportamento de arrasto*/
+    -webkit-app-region: no-drag;
+}
+
+.title-bar-close-button
+{
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    transition: all 2 ease-in-out;
+    /*Elemento importante para que, ao apertar em cima de um botão, a janela não tenha o comportamento de arrasto*/
+    -webkit-app-region: no-drag;
+}
+
+.title-bar-minimize-button
+{
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    /*Elemento importante para que, ao apertar em cima de um botão, a janela não tenha o comportamento de arrasto*/
+    -webkit-app-region: no-drag;
+}
+
+/*Configuração das imagens na barra de título. Aqui configuramos os botões de fechar e minimizar*/
+.title-bar-close-button img, .title-bar-minimize-button img {
+    width: 20px; 
+    height: 20px;
+    opacity: 0.3;  
+    transition: opacity 0.1s ease-in-out;
+}
+  
+/*Ao passar o mouse em cima do botão, a imagem fica com a opacidade de 1*/
+.title-bar-close-button:hover img, .title-bar-minimize-button:hover img {
+    opacity: 0.8;
+}
+
+/*Altera o cursor. Isso está aqui pois o cursor precisa ser alterado no botão, não na imagem*/
+.title-bar-close-button:hover, .title-bar-minimize-button:hover {
+    cursor: grab;
+}
+
+/*Remove o foco global ao apertar TAB na página*/
+*:focus {
+outline: none;
+};
+
