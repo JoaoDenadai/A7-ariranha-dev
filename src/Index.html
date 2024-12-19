@@ -1,0 +1,152 @@
+<!-- Index.html-->
+<!---->
+<!-- Arquivo da interface da janela principal do programa -->
+<!---->
+<!-- Criado por: João Denadai -->
+
+
+<!--Estrutura básica de HTML -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Permite utilizar caracteres especiais -->
+        <meta charset="UTF-8">
+        <!-- Título da janela -->
+        <title>A7-Ariranha (Client)</title>
+        <!-- Adicionado o CSS de manipulação da aparênciad da janela -->
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="./toolbar/toolbar.css">
+    </head>
+    <body>
+
+        <!-- Barra de título da janela -->
+        <div id="title-bar" class="title-bar-div">
+            <!-- O comportamento da barra de título da janela é composto pelo toolbar.css-->
+            <div style="display: inline-flex; align-items: center; margin-left: 5px;">
+
+                <!-- Conteúdos da barra de título -->
+                <img style="width: 20px;" src="../assets/otter.png">
+                <div id="title-on-bar" class="window-name" style="margin-left: 5px;">Ariranha</div>
+                <button style="color: gray; border-radius: 4px; margin-left: 10px;">Tela: Formatação</button>
+                <button style="color: gray; border-radius: 4px; margin-left: 10px;">Versão: 1.14.1</button>
+            </div>
+
+            <!-- Botões de minimizar e fechar-->
+            <div id="title-bar-buttons">
+                <!-- Os botões tem suas respectivas imagens dentro de seus divs -->
+                <button id="title-bar-minimize-button" class="title-bar-minimize-button" ><img src="../assets/minus.png" draggable="false" style="width: 75%; height: auto;"></button>
+                <button id="title-bar-close-button" class="title-bar-close-button"><img draggable="false" src="../assets/close.png" style="width: 75%; height: auto;"></button>
+            </div>
+        </div>
+
+
+        <!-- Divisão da primeira árvore de ferramentas -->
+        <!-- O css está sendo implementado diretamente na tag, vou alterar -->
+        <!-- Manter o "flex-direction: column" para manter os botões abaixo do input -->
+        <div style="display: flex; flex-direction: column; margin-top: 40px;">
+            <label>CNPJ</label>
+            <!--Input do CNPJ-->
+            <input type="text" id="CNPJ-Input-element" maxlength="14" placeholder="Digite o CNPJ"></input>
+
+            <!-- Botões de manipulação do CNPJ -->
+            <!-- NÃO ALTERAR NENHUM ID -->
+            <!-- Alteração de conteúdo (Como nomes) e estilo é permitida -->
+            <button id="CNPJ-Format-Button">Formatar</button>
+            <button id="CNPJ-Copy-Button">Copiar</button>
+            <button id="CNPJ-Unformat-Button">Remover formatação</button>
+        </div>
+
+        <!-- Checkbox para formatação automática -->
+        <!-- PRECISA-SE URGENTEMENTE COLOCAR ESSES PARÂMETROS NO Conf.json -->
+        <div style="display: inline-flex; flex-direction: column; padding-top: 5px;">
+            <div style="display: inline-flex;">
+                <!-- Checkbox responsável por formatar automaticamente o CNPJ ao conter 14 digitos -->
+                <input type="checkbox" id="CNPJ-Checkbox-autoformat-element">Formatar automaticamente</input>
+            </div>
+            <div style="display: inline-flex;">
+                <!-- Checkbox responsável por copiar bem no momento de se formatar -->
+                <input type="checkbox" id="CNPJ-Checkbox-autocopy-element">Copiar ao formatar</input>
+            </div>
+        </div>
+
+        <!-- Divisão da segunda árvore de ferramentas, exclusivamente para Código A7 -->
+        <div style="display: flex; flex-direction: column; margin-top: 25px;">
+            <label>Código A7</label>
+            <!-- Campo para ser preenchido o Código A7 -->
+            <input type="text" id="A7-Input-element" placeholder="Digite o Código A7"></input>
+
+            <!-- Botão de manipulação do Código A7 -->
+            <button id="A7-Format-Button">Formatar</button>
+        </div>
+
+        <!-- Checkbox para formatar automaticamente o Código A7 -->
+        <div style="display: inline-flex; flex-direction: column; padding-top: 5px;">
+            <div style="display: inline-flex;">
+                <!-- Caso o checkbox esteja ativo, ele irá formatar automaticamente o Código A7 ao ter 9 digitos -->
+                <input type="checkbox" id="A7-Checkbox-autoformat-element">Formatar automaticamente</input>
+            </div>
+        </div>
+
+        <!-- Implementação do Telefone e Email -->
+        <div style="display: flex; flex-direction: column; margin-top: 25px;">
+            <label>Telefone e E-mail</label>
+            <!-- Inputs e botões principais da funcionalidade -->
+            <input type="text" id="InputPhoneOrEmail-input" placeholder="Digite o Telefone ou E-mail"></input>
+            <button id="phoneOrEmailFormater-button">Formatar</button>
+            <button id="phoneOrEmailCopy-button">Copiar</button>
+            <button id="phoneOrEmailRemoveFormatation-button">Remover Formatação</button>
+
+            <!-- Divisão para ser aplicado os checkboxes sem prejudicar sua apresentação na tela.-->
+            <!-- Sim, um div por opção para manter a caixa e o texto alinhados.-->
+            <div style="display: inline-flex; padding-top: 5px;">
+                <input type="checkbox" id="PhoneMail-Checkbox-autoformat-element" style="white-space: nowrap;"><label style="width: 200px; white-space: nowrap;">Formatar automaticamente</label>
+            </div>
+            <div style="display: inline-flex;">
+                <input type="checkbox" id="PhoneMail-Checkbox-autocopy-element">Copiar ao formatar</input>
+            </div>
+            
+        </div>
+
+        <!-- Logs do sistema-->
+        <div style="margin-top: 25px;  width: 95vw; height: 10vh; resize: none;">
+            <label>Logs</label>
+            <!-- Área de logs, aqui você consegue visualizar todos os logs de eventos que ocorre no Ariranha, inclusive, mensagens de erro -->
+            <!-- É possível desabilitar os logs, o que pode melhorar o desempenho -->
+            <textarea id="A7-Ariranha-Logs-element" style=" font-size: 9px; background-color: rgb(248, 248, 248); resize: none; width: 94vw; height: 10vh;" readonly></textarea>
+        </div>
+
+
+        <!-- Barra de ferramentas-->
+        <!-- Barra principal para se colocar ferramentas (Apenas para a tela de formatação)-->
+        <div id="footer-toolbar">
+            <button id="Config-Button-element" title="Configurações"><img src="../assets/setting(1).png" style="width: 15px;"></button>
+            <!-- Botão para limpar os logs de eventos -->
+            <button id="Erase-Button-element" title="Limpar logs de eventos"><img src="../assets/broom.png" style="width: 20px;"></button>
+            <button id="changelogs-button" title="Ver changelogs" onclick="openChangeLogsOnExternal()"><img src="../assets/speech-bubble-with-text-lines.png" style="width: 16px;"></button>
+        </div>
+        
+
+
+        <!--Script para abrir os changelogs -->
+        <script>
+            //Função chamada ao apertar o botão.
+            function openChangeLogsOnExternal()
+            {
+                const {ipcRenderer} = require ('electron');
+                //Envia ao processo principal o sinal e qual link deve ser aberto.
+                ipcRenderer.send('open-url-on-external', 'https://github.com/JoaoDenadai/A7-ariranha-dev/releases/')
+            }
+        </script>
+
+        <!-- Lista de scripts funcionando com o projeto -->
+        <!-- Se alterar o diretório, altere o src -->
+        <script type="module" src="./scripts/JSON_Load.js"></script>
+        <script type="module" src="./scripts/Logs.js"></script>
+        <script type="module" src="./scripts/CNPJ.js"></script>
+        <script type="module" src="./scripts/A7.js"></script>
+        <script type="module" src="./scripts/properties/Config.js"></script>
+        <script type="module" src="./scripts/properties/JSON.js"></script>
+        <script type="module" src="./scripts/Telefone_email.js"></script>
+        <script type="module" src="./toolbar/toolbar.js"></script>
+    </body>
+</html>
